@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <h1>Mini Message Board</h1>
 
-    <a href="/new">Add New Message</a>
+    <a href="/new">➕ New Message</a>
 
     <ul>
-        <% messages.forEach(message => { %>
+        <% messages.forEach((message, index) => { %>
             <li>
-                <strong><%= message.user %></strong>:
+            <a href="/message/<%= index %>">
+                <strong><%= message.user %></strong>: 
                 <%= message.text %>
-                <br>
-                <small><%= message.added %></small>
+            </a>
+            <br>
+            <small><%= message.added.toLocaleString() %></small>
             </li>
         <% }) %>
     </ul>

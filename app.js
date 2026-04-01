@@ -8,6 +8,8 @@ app.set("view engine", "ejs");
 
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(express.urlencoded({ extended: true }));
+
 const indexRouter = require("./routes/indexRouter");
 
 app.use("/", indexRouter);
